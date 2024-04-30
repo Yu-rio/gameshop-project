@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gameshop-project.Server", "gameshop-project.Server\gameshop-project.Server.csproj", "{3FE42FB7-3344-4F00-838C-789D6FAA7D52}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "gameshop-project.client", "gameshop-project.client\gameshop-project.client.esproj", "{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FE42FB7-3344-4F00-838C-789D6FAA7D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE42FB7-3344-4F00-838C-789D6FAA7D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE42FB7-3344-4F00-838C-789D6FAA7D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE42FB7-3344-4F00-838C-789D6FAA7D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4347100D-BEC3-4DD9-AC14-B3CD627DD23B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCDCB30F-8FD1-4C92-9DB3-96293D0B7020}
+	EndGlobalSection
+EndGlobal

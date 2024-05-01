@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>6.*-*</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -21,6 +22,15 @@
     <ProjectReference Include="..\gameshop-project.client\gameshop-project.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ClassLibraryGameShop">
+      <HintPath>..\..\ClassLibraryGameShop\ClassLibraryGameShop\obj\Debug\net6.0\ClassLibraryGameShop.dll</HintPath>
+    </Reference>
+    <Reference Include="TestShop">
+      <HintPath>..\..\ClassLibraryGameShop\TestShop\bin\Debug\net6.0\TestShop.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

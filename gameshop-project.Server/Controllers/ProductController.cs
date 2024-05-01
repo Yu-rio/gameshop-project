@@ -17,6 +17,14 @@ namespace GameShop.Controllers
             return products;
         }
 
+        // GET: api/<ProductController>
+        [HttpGet("GetProductsByCategory")]
+        public IEnumerable<Product> GetByCategoryId(string categoryId)
+        {
+            var products = new ProductDB().GetByCategory(categoryId);
+            return products;
+        }
+
         // GET api/<ProductController>/5
         [HttpGet("GetProductById")]
         public Product Get(string id)

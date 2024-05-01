@@ -17,7 +17,13 @@ namespace GameShop.Controllers
             var orderItems = new OrderItemDB().Read();
             return orderItems;
         }
-
+        // GET: api/<OrderItemController>
+        [HttpGet("GetOrderItemsByOrderId")]
+        public IEnumerable<OrderItem> GetByOrderId(string orderId)
+        {
+            var orderItems = new OrderItemDB().GetByOrderId(orderId);
+            return orderItems;
+        }
         // GET api/<OrderItemController>/5
         [HttpGet("GetOrderItemByProductIdAndOrderId")]
         public OrderItem Get(string productId, string orderId)

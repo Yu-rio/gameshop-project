@@ -18,6 +18,14 @@ namespace GameShop.Controllers
             return cartItems;
         }
 
+        // GET: api/<CartItemController>
+        [HttpGet("GetCartItemsByCartId")]
+        public IEnumerable<CartItem> Get(string cartId)
+        {
+            var cartItems = new CartItemDB().GetCartItemByCartId(cartId);
+            return cartItems;
+        }
+
         // GET api/<CartItemController>/5
         [HttpGet("GetCartItemByProductIdAndCartId")]
         public CartItem Get(string productId, string cartId)

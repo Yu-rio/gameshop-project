@@ -24,6 +24,12 @@ namespace GameShop.Controllers
         {
             return new CartDB().GetById(id);
         }
+        // GET api/<ValuesController>/5
+        [HttpGet("GetCartByCustomerId")]
+        public Cart GetByCustomerId(string customerId)
+        {
+            return new CartDB().GetByCustomerId(customerId);
+        }
 
         // POST api/<ValuesController>
         [HttpPost(Name = "NewCart")]

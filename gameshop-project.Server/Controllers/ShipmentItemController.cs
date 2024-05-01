@@ -18,6 +18,14 @@ namespace GameShop.Controllers
             return shipmentItems;
         }
 
+        // GET: api/<ShipmentItemController>
+        [HttpGet("GetShipmentItemsByShipmentId")]
+        public IEnumerable<ShipmentItem> GetByShipmentId(string shipmentId)
+        {
+            var shipmentItems = new ShipmentItemDB().GetShipmentItemByShipmentId(shipmentId);
+            return shipmentItems;
+        }
+
         // GET api/<ShipmentItemController>/5
         [HttpGet("GetShipmentItemByShipmentIdAndProductId")]
         public ShipmentItem Get(string shipmentId, string productId)

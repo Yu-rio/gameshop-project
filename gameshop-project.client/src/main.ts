@@ -1,6 +1,11 @@
 import './assets/headerStyle.css'
+import { createApp } from 'vue';
+import App from './App.vue';
+import axios from 'axios';
+import router from './router';
+axios.defaults.baseURL = 'https://localhost:7166/';
 
-import { createApp } from 'vue'
-import App from './App.vue'
-
-createApp(App).mount('#app')
+const app = createApp(App);
+app.config.globalProperties.$http = axios; 
+app.use(router);
+app.mount('#app');

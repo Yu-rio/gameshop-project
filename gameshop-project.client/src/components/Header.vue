@@ -1,9 +1,9 @@
 ﻿<template>
 <header>
   <nav class="header-nav container flex-container">
-    <h1 class="logo"><a class="logo-link" href="#">GameShop</a></h1>
+    <h1 class="logo"><router-link class="logo-link" to="/home">GameShop</router-link></h1>
     <ul class="header-menu flex-container">
-      <li><a class="header-menu-link" href="">Игры</a></li>
+      <li><router-link class="header-menu-link" to="/games">Игры</router-link></li>
       <li><a class="header-menu-link" href="">Ваучеры</a></li>
       <li><a class="header-menu-link" href="">Личный кабинет</a></li>
     </ul>

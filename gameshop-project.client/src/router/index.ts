@@ -1,7 +1,6 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
-import HomePage from '../views/HomePage.vue';
+import HomePage from '@/views/HomePage.vue';
 import GameCatalog from '../views/GameCatalog.vue';
 import VoucherCatalog from '../views/VoucherCatalog.vue';
 import GameDetails from '../views/GameDetails.vue';
@@ -10,10 +9,8 @@ import LoginPage from '../views/LoginPage.vue';
 import RegisterPage from '../views/RegisterPage.vue';
 import AccountPage from '../views/AccountPage.vue';
 
-Vue.use(VueRouter);
-
 const routes = [
-    { path: '/', component: HomePage },
+    { path: '/home', name:'Home', component: HomePage },
     { path: '/games', component: GameCatalog },
     { path: '/vouchers', component: VoucherCatalog },
     { path: '/games/:id', component: GameDetails },
@@ -23,9 +20,9 @@ const routes = [
     { path: '/account', component: AccountPage, meta: { requiresAuth: true } }
 ];
 
-const router = new VueRouter({
-    routes,
-    mode: 'history'
-});
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
 
-export default router;
+export default router

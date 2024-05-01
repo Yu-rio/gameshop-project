@@ -9,6 +9,8 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\router\" />
+    <Folder Include="src\components\Новая папка\" />
+    <Folder Include="src\service\" />
+    <Folder Include="src\Новая папка\" />
   </ItemGroup>
 </Project>

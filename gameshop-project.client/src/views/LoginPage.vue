@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<template>
+    <div>
+        <h2>Вход</h2>
+        <!-- Форма входа -->
+    </div>
+</template>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<script>
+export default {
+  // Логика компонента
+};
+</script>

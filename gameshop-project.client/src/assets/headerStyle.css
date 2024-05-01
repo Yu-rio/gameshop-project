@@ -42,7 +42,8 @@ button {
     }
 
 header {
-    min-height: 100vh;
+    min-height: 10vh;
+    max-height: 50vh;
 }
 
 img {
@@ -129,7 +130,7 @@ p {
 }
 
 .header-title {
-    font-size: 2.5em;
+    font-size: 1em;
     letter-spacing: -.025em;
     line-height: 1.25;
     margin-left: -.0625em;
@@ -195,7 +196,7 @@ p {
     }
 
     .header-title {
-        font-size: calc(1vw + 2.5em);
+        font-size: calc(1vw + 1em);
     }
 }
 

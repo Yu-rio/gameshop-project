@@ -1,31 +1,34 @@
 <template>
     <div>
-        <h2>Детали игры</h2>
-        <p>Название: {{ game.title }}</p>
-        <p>Жанр: {{ game.genre }}</p>
-        <!-- Дополнительная информация о игре -->
+        <h2>{{ game.title }}</h2>
+        <p><strong>Описание:</strong> {{ game.content }}</p>
+        <p><strong>Цена:</strong> {{ game.price }}</p>
+        <!-- Добавьте другие детали игры, если необходимо -->
     </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      game: null
+    import axios from 'axios';
+
+    export default {
+        data() {
+            return {
+                game: null
+            };
+        },
+        created() {
+            this.getGameDetails();
+        },
+        methods: {
+            async getGameDetails() {
+                const gameId = this.$route.params.id;
+                try {
+                    const response = await axios.get(`/Product/GetProductById?id=${gameId}`);
+                    this.game = response.data;
+                } catch (error) {
+                    console.error('Ошибка при загрузке данных игры:', error);
+                }
+            }
+        }
     };
-  },
-  mounted() {
-    this.getGameData();
-  },
-  methods: {
-    async getGameData() {
-      try {
-        const response = await this.$http.get('/api/Game/GetGameDetails?id=123'); // Замените на нужный ID игры
-        this.game = response.data;
-      } catch (error) {
-        console.error('Ошибка при получении данных об игре:', error);
-      }
-    }
-  }
-};
 </script>

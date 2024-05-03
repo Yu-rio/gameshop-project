@@ -1,31 +1,34 @@
 <template>
     <div>
-        <h2>Детали ваучера</h2>
-        <p>Название: {{ voucher.name }}</p>
-        <p>Скидка: {{ voucher.discount }}</p>
-        <!-- Дополнительная информация о ваучере -->
+        <h2>{{ voucher.title }}</h2>
+        <p><strong>Описание:</strong> {{ voucher.content }}</p>
+        <p><strong>Цена:</strong> {{ voucher.price }}</p>
+        <!-- Добавьте другие детали игры, если необходимо -->
     </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      voucher: null
+    import axios from 'axios';
+
+    export default {
+        data() {
+            return {
+                voucher: null
+            };
+        },
+        created() {
+            this.getVoucherDetails();
+        },
+        methods: {
+            async getVoucherDetails() {
+                const voucherId = this.$route.params.id;
+                try {
+                    const response = await axios.get(`/Product/GetProductById?id=${voucherId}`);
+                    this.voucher = response.data;
+                } catch (error) {
+                    console.error('Ошибка при загрузке данных ваучера:', error);
+                }
+            }
+        }
     };
-  },
-  mounted() {
-    this.getVoucherData();
-  },
-  methods: {
-    async getVoucherData() {
-      try {
-        const response = await this.$http.get('/api/Voucher/GetVoucherDetails?id=123'); // Замените на нужный ID ваучера
-        this.voucher = response.data;
-      } catch (error) {
-        console.error('Ошибка при загрузке данных о ваучере:', error);
-      }
-    }
-  }
-};
 </script>

@@ -1,8 +1,8 @@
 <template>
     <div>
         <h2>Моя учетная запись</h2>
-        <p>Имя пользователя: {{ user.FirstName }}</p>
-        <p>Email: {{ user.Email }}</p>
+        <p>Имя пользователя: {{ user.firstName }}</p>
+        <p>Email: {{ user.email }}</p>
        
     </div>
 </template>
@@ -14,13 +14,14 @@ export default {
       user: null
     };
   },
-  mounted() {
+  created() {
     this.getUserData();
   },
   methods: {
     async getUserData() {
-      try {
-        const response = await this.$http.get('/api/User/GetUserData');
+         const id = this.$store.getters.getId;
+try {
+    const response = await this.$axios.get(`/Customer/GetCustomerById?id=${id}`);
         this.user = response.data;
       } catch (error) {
         console.error('Ошибка при получении данных пользователя:', error);

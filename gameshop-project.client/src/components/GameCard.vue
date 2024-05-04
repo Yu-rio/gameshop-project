@@ -1,10 +1,11 @@
 <template>
     <div class="game-card">
+        <br>
         <router-link :to="{ name: 'GameDetails', params: { id: product.productId } }">
-            <h3>{{ product.title }}</h3>
+            <h3 class="center">{{ product.title }}</h3>
         </router-link>
-        <p>{{ product.genre.genreName }}</p>
-        <p>Цена: {{ product.price }}</p>
+        <p class="center">{{ product.genre.genreName }}</p>
+        <p class="center">Цена: {{ product.price }}</p>
         
     </div>
 </template>
@@ -26,5 +27,8 @@ export default {
         padding: 10px;
         margin-bottom: 10px;
         cursor: pointer; /* Добавим стиль, чтобы курсор менялся при наведении */
+    }
+    .center {
+        text-align: center;
     }
 </style>

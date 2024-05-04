@@ -10,9 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="src\components\Новая папка\**" />
-    <None Remove="src\Новая папка\**" />
     <TypeScriptConfiguration Remove="src\components\Новая папка\**" />
-    <TypeScriptConfiguration Remove="src\Новая папка\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="src\api.js" />

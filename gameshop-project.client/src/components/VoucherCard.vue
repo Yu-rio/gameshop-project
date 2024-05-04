@@ -1,10 +1,11 @@
 <template>
     <div class="voucher-card">
+        <br>
         <router-link :to="{ name: 'VoucherDetails', params: { id: product.productId } }">
-            <h3>{{ product.title }}</h3>
+            <h3 class="center">  {{ product.title }}</h3>
         </router-link>
-        <p>Кол-во: {{ product.quantity }}</p>
-        <p>Цена: {{ product.price }}</p>
+        <p class="center">   Кол-во: {{ product.quantity }}</p>
+        <p class="center">   Цена: {{ product.price }}</p>
     </div>
 </template>
 
@@ -25,5 +26,8 @@ export default {
         padding: 10px;
         margin-bottom: 10px;
         cursor: pointer; /* Добавим стиль, чтобы курсор менялся при наведении */
+    }
+    .center{
+        text-align:center;
     }
 </style>

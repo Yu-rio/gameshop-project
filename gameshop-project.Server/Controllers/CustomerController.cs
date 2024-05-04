@@ -24,6 +24,12 @@ namespace GameShop.Controllers
         {
             return new CustomerDB().GetById(id);
         }
+        // GET api/<CustomerController>/5
+        [HttpGet("GetCustomerByEmail")]
+        public Customer GetByEmail(string email)
+        {
+            return new CustomerDB().GetByEmail(email);
+        }
 
         // POST api/<CustomerController>
         [HttpPost(Name = "NewCustomer")]

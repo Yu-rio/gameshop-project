@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Список ваучеров</h2>
+        <h2 class="center">  Список ваучеров</h2>
         <voucher-card v-for="product in products" :key="product.productId" :product="product" />
     </div>
 </template>
@@ -33,3 +33,9 @@
         }
     };
 </script>
+
+<style>
+    .center {
+        text-align: center;
+    }
+ </style>

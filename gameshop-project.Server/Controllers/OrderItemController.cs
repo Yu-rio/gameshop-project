@@ -1,8 +1,7 @@
 ﻿using ClassLibraryGameShop;
+using gameshop_project.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using TestShop;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace GameShop.Controllers
 {
@@ -33,16 +32,16 @@ namespace GameShop.Controllers
 
         // POST api/<OrderItemController>
         [HttpPost(Name = "NewOrderItem")]
-        public void Post(float? price, int? quantity, string productId, string orderId)
+        public void Post([FromBody] OrderItemModel orderItem)
         {
-            new OrderItemDB().Create(price, quantity,  productId, orderId);
+            new OrderItemDB().Create(orderItem.price, orderItem.quantity,  orderItem.productId, orderItem.orderId);
         }
 
         // PUT api/<OrderItemController>/5
         [HttpPut(Name = "UpdateOrderItem")]
-        public void Put(float? price, int? quantity, string productId, string orderId)
+        public void Put([FromBody] OrderItemModel orderItem)
         {
-            new OrderItemDB().Create(price, quantity, productId, orderId);
+            new OrderItemDB().Create(orderItem.price, orderItem.quantity, orderItem.productId, orderItem.orderId);
         }
 
         // DELETE api/<OrderItemController>/5

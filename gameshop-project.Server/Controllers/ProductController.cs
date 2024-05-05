@@ -1,7 +1,7 @@
 ﻿using ClassLibraryGameShop;
+using gameshop_project.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using TestShop;
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace GameShop.Controllers
 {
@@ -34,16 +34,16 @@ namespace GameShop.Controllers
 
         // POST api/<ProductController>
         [HttpPost(Name = "NewProduct")]
-        public void Post(string productId, string title, string trailerLink, int? quantity, float price, string content, string categoryId, string publisherId, string genreId, string platformId)
+        public void Post([FromBody] ProductModel product)
         {
-            new ProductDB().Create(productId, title, trailerLink, quantity, price, content, categoryId, publisherId, genreId, platformId);
+            new ProductDB().Create(product.productId, product.title, product.trailerLink, product.quantity, product.price, product.content, product.categoryId, product.publisherId, product.genreId, product.platformId);
         }
 
         // PUT api/<ProductController>/5
         [HttpPut(Name = "UpdateProduct")]
-        public void Put(string productId, string title, string trailerLink, int? quantity, float price, string content, string categoryId, string publisherId, string genreId, string platformId)
+        public void Put([FromBody] ProductModel product)
         {
-            new ProductDB().Update(productId, title, trailerLink, quantity, price, content, categoryId, publisherId, genreId, platformId);
+            new ProductDB().Update(product.productId, product.title, product.trailerLink, product.quantity, product.price, product.content, product.categoryId, product.publisherId, product.genreId, product.platformId);
         }
 
         // DELETE api/<ProductController>/5

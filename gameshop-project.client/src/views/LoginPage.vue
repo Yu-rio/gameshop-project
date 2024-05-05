@@ -1,17 +1,27 @@
 <template>
     <div class="login-page">
-        <h2>Вход</h2>
+        <h2>Р’С…РѕРґ</h2>
+        <br>
         <form @submit.prevent="login">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="text" id="email" v-model="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Пароль:</label>
+                <label for="password">РџР°СЂРѕР»СЊ:</label>
                 <input type="password" id="password" v-model="password" required>
             </div>
-            <button type="submit">Войти</button>
+            <div class="center">
+            <button class="login_button" type="submit">Р’РѕР№С‚Рё</button>
+            </div>
         </form>
+        <br><br>
+        <div class="center">
+            <p>Р•С‰Рµ РЅРµ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅ?<br>
+            ||<br>
+            \/</p>
+        <button class="type-button"><router-link to="/register">Р РµРіРёСЃС‚СЂР°С†РёСЏ</router-link></button>
+        </div>
     </div>
 </template>
 
@@ -26,7 +36,7 @@
         methods: {
             async login() {
                 try {
-                    // Отправляем запрос на сервер для аутентификации
+                    // РћС‚РїСЂР°РІР»СЏРµРј Р·Р°РїСЂРѕСЃ РЅР° СЃРµСЂРІРµСЂ РґР»СЏ Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё
                     const response = await this.$axios.post('/Login', {
                         email: this.email,
                         password: this.password
@@ -35,7 +45,7 @@
                     this.$store.dispatch('login', { token: response.data.token, id: response.data.id });
                     this.$router.push('/'); 
                 } catch (error) {
-                    console.error('Ошибка при входе:', error);
+                    console.error('РћС€РёР±РєР° РїСЂРё РІС…РѕРґРµ:', error);
                 }
             }
         }
@@ -53,7 +63,7 @@
     }
 
     label {
-        display: block;
+        display: flex;
     }
 
     input[type="text"],
@@ -63,11 +73,14 @@
         font-size: 16px;
     }
 
-    button {
+    .login_button {
         padding: 10px 20px;
         background-color: #007bff;
         color: #fff;
         border: none;
         cursor: pointer;
+    }
+    .center{
+        text-align:center;
     }
 </style>

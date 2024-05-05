@@ -1,4 +1,5 @@
 ﻿using ClassLibraryGameShop;
+using gameshop_project.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using TestShop;
 
@@ -33,16 +34,16 @@ namespace GameShop.Controllers
 
         // POST api/<CustomerController>
         [HttpPost(Name = "NewCustomer")]
-        public void Post(string id, string firstName, string lastName, string patronymicName, string email, DateTime birthday, string address, string passwordHash)
+        public void Post([FromBody] CustomerModel customer)
         {
-            new CustomerDB().Create(id, firstName,  lastName,  patronymicName, email, birthday, address, passwordHash);
+            new CustomerDB().Create(customer.id, customer.firstName,  customer.lastName,  customer.patronymicName, customer.email, customer.birthday, customer.address, customer.passwordHash);
         }
 
         // PUT api/<CustomerController>/5
         [HttpPut(Name = "UpdateCustomer")]
-        public void Put(string id, string firstName, string lastName, string patronymicName, string email, DateTime birthday, string address, string passwordHash)
+        public void Put([FromBody] CustomerModel customer)
         {
-            new CustomerDB().Update(id, firstName, lastName,  patronymicName, email, birthday, address, passwordHash);
+            new CustomerDB().Update(customer.id, customer.firstName, customer.lastName, customer.patronymicName, customer.email, customer.birthday, customer.address, customer.passwordHash);
         }
 
         // DELETE api/<CustomerController>/5

@@ -7,8 +7,18 @@
             <div class="header-description container">
                 <p class="header-title">Покупай.Играй.Делись.</p>
                 <p>Добро пожаловать в мир виртуальных приключений и бесконечных возможностей! Наш интернет-магазин игр - это оазис для всех поклонников игровой индустрии. У нас вы найдете самые горячие новинки, классические хиты и уникальные эксклюзивы для всех платформ: от ПК и консолей до мобильных устройств. Мы предлагаем широкий ассортимент игр различных жанров: от захватывающих экшенов и стратегий до увлекательных приключений и интригующих головоломок.</p>
-                <button class="type-button">Start Exploring</button>
+                <button class="type-button" v-if="!isLoggedIn"><router-link to="/register">Start Exploring</router-link></button>
+                <button class="type-button" v-if="isLoggedIn"><router-link to="/games">Start Exploring</router-link></button>
             </div>
         </section>
     </main>
 </template>
+
+
+<script>
+    export default {
+        computed: {
+            isLoggedIn: function () { return this.$store.getters.isLoggedIn }
+        }
+    }
+    </script>

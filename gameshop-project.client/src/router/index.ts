@@ -8,6 +8,7 @@ import VoucherDetails from '@/views/VoucherDetails.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import RegisterPage from '@/views/RegisterPage.vue';
 import AccountPage from '@/views/AccountPage.vue';
+import CartPage from '@/views/CartPage.vue';
 
 const routes = [
     { path: '/home', name:'Home', component: HomePage },
@@ -17,9 +18,9 @@ const routes = [
     { path: '/vouchers/:id', component: VoucherDetails, name: 'VoucherDetails' },
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
-    { path: '/account', component: AccountPage, meta: { requiresAuth: true } }
+    { path: '/account', component: AccountPage, meta: { requiresAuth: true } },
+    { path: '/cart', name: 'Cart', component: CartPage },
 ];
-``
 
 
 const router = createRouter({

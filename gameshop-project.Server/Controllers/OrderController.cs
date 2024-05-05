@@ -1,4 +1,5 @@
 ﻿using ClassLibraryGameShop;
+using gameshop_project.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using TestShop;
 
@@ -35,16 +36,18 @@ namespace GameShop.Controllers
 
         // POST api/<OrderController>
         [HttpPost(Name = "NewOrder")]
-        public void Post(string orderId, DateTime orderDate, float sum, string status, string deliveryId, string customerId, string transactionId)
+        public void Post([FromBody] OrderModel order)
         {
-            new OrderDB().Create(orderId, orderDate, sum, status, deliveryId, customerId, transactionId);
+            DateTime now = DateTime.Now;
+            new OrderDB().Create(order.orderId, now, order.sum, order.status, order.deliveryId, order.customerId, order.transactionId);
         }
 
         // PUT api/<OrderController>/5
         [HttpPut(Name = "UpdateOrder")]
-        public void Put(string orderId, DateTime orderDate, float sum, string status, string deliveryId, string customerId, string transactionId)
+        public void Put([FromBody] OrderModel order)
         {
-            new OrderDB().Update(orderId, orderDate, sum, status, deliveryId, customerId, transactionId);
+            DateTime now = DateTime.Now;
+            new OrderDB().Update(order.orderId, now, order.sum, order.status, order.deliveryId, order.customerId, order.transactionId);
         }
 
         // DELETE api/<OrderController>/5

@@ -33,7 +33,8 @@ export const store = createStore({
     getters: {
         isLoggedIn: state => !!state.token,
         authStatus: state => state.isAuthenticated,
-        getId: state=> state.id,
+        getId: state => state.id,
+        isAdmin: state=> state.id=="CM000000"
     }
 })
 

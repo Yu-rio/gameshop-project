@@ -1,4 +1,5 @@
 ﻿using ClassLibraryGameShop;
+using gameshop_project.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using TestShop;
 
@@ -32,16 +33,18 @@ namespace GameShop.Controllers
 
         // POST api/<ValuesController>
         [HttpPost(Name = "NewCart")]
-        public void Post(string id, DateTime createdAt, string customerId)
+        public void Post([FromBody] CartModel cart)
         {
-            new CartDB().Create(id, createdAt, customerId);
+            DateTime now = DateTime.Now;
+            new CartDB().Create(cart.id, now, cart.customerId);
         }
 
         // PUT api/<ValuesController>/5
         [HttpPut(Name = "UpdateCart")]
-        public void Put(string id, DateTime createdAt, string customerId)
+        public void Put([FromBody] CartModel cart)
         {
-            new CartDB().Update(id, createdAt, customerId);
+            DateTime now = DateTime.Now;
+            new CartDB().Update(cart.id, now, cart.customerId);
         }
 
         // DELETE api/<ValuesController>/5

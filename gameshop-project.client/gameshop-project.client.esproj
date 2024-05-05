@@ -9,10 +9,9 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="src\components\Новая папка\**" />
-    <TypeScriptConfiguration Remove="src\components\Новая папка\**" />
+    <None Remove="src\api.js" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="src\api.js" />
+    <Folder Include="src\components\Новая папка\" />
   </ItemGroup>
 </Project>

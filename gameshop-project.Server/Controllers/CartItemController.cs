@@ -52,7 +52,7 @@ namespace GameShop.Controllers
         [HttpDelete(Name = "CartItem/{productId}/{cartId}")]
         public void Delete(string productId, string cartId)
         {
-            new CartItemDB().Delete(productId, cartId);
+            new CartItemDB().Delete(productId,cartId);
         }
     }
 }

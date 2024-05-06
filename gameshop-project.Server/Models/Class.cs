@@ -53,6 +53,11 @@ namespace gameshop_project.Server.Models
         public string productId { get; set; }
         public string cartId { get; set; }
     }
+    public class CartItemSearchModel
+    {
+        public string productId { get; set; }
+        public string cartId { get; set; }
+    }
 
     public class OrderModel
     {

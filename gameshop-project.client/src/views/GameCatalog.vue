@@ -1,8 +1,11 @@
 <template>
-    <div>
+    <div class="catalog-page">
         <h2 class="center">Список игр</h2>
-        <game-card v-for="product in products" :key="product.productId" :product="product" />
-    </div>
+        <br>
+        <div class="product-list">
+            <game-card v-for="product in products" :key="product.productId" :product="product" />
+        </div>
+        </div>
 </template>
 
 <script>
@@ -34,8 +37,15 @@
     };
 </script>
 
-<style>
-    .center {
-        text-align: center;
+<style scoped>
+    .catalog-page {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 </style>

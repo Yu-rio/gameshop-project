@@ -9,7 +9,7 @@
             <span v-if="!cartItem">
                 <button @click="addToCart(product.productId)">Добавить в корзину</button>
             </span>
-            <span v-if="cartItem">
+            <span v-if="cartItem" class="horizontal-controls">
                 <button @click="incrementQuantity(product.productId)">+</button>
                 <p>{{cartItem.quantity}}</p>
                 <button @click="decrementQuantity(product.productId)">-</button>
@@ -135,6 +135,7 @@
         margin: 10px;
         width: 20em;
         text-align: center;
+        align-items:center;
     }
 
     button {
@@ -143,5 +144,16 @@
         color: #fff;
         border: none;
         cursor: pointer;
+        align-items: center;
     }
+
+    .horizontal-controls {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+
+        .horizontal-controls button {
+            margin: 0 10px; 
+        }
 </style>

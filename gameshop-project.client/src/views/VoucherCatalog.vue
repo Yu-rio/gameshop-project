@@ -1,7 +1,10 @@
 <template>
-    <div>
-        <h2 class="center">  Список ваучеров</h2>
-        <voucher-card v-for="product in products" :key="product.productId" :product="product" />
+    <div class="catalog-page">
+        <h2 class="center">Список ваучеров</h2>
+        <br>
+        <div class="product-list">
+            <voucher-card v-for="product in products" :key="product.productId" :product="product" />
+        </div>
     </div>
 </template>
 
@@ -34,7 +37,16 @@
     };
 </script>
 
-<style>
+<style scoped>
+    .catalog-page {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
     .center {
         text-align: center;
     }

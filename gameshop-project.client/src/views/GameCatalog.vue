@@ -48,4 +48,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
+    .center {
+        text-align: center;
+    }
 </style>

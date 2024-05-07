@@ -3,7 +3,6 @@
         <h2>  {{ voucher.title }}</h2>
         <p><strong>   Описание:</strong> {{ voucher.content }}</p>
         <p><strong>   Цена:</strong> {{ voucher.price }}</p>
-        <!-- Добавьте другие детали игры, если необходимо -->
     </div>
 </template>
 

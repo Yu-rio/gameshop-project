@@ -9,6 +9,8 @@
                 <p>{{ item.product.title }}</p>
                 <p>{{ item.price }} руб.</p>
                 <p>Количество: {{ item.quantity }}</p>
+                <button @click="incrementQuantity(item)">+</button>
+                <button @click="decrementQuantity(item)">-</button>
                 <button @click="removeItem(item.productId)">Удалить</button>
             </div>
             <p>Общая стоимость: {{ total }} руб.</p>
@@ -64,6 +66,45 @@
                     this.$router.push('/orders');
                 } catch (error) {
                     console.error('Ошибка при оформлении заказа:', error);
+                }
+            },
+            incrementQuantity(item) {
+                if (item.quantity < item.product.quantity) {
+                    this.updateCartItemQuantity(item, item.quantity + 1);
+                }
+            },
+            decrementQuantity(item) {
+                if (item.quantity > -1) {
+
+                    this.updateCartItemQuantity(item, item.quantity - 1);
+                }
+            },
+            async updateCartItemQuantity(item, quantity) {
+                if (quantity <= 0) {
+                    try {
+                        await this.$axios.delete('/CartItem', {
+                            params: {
+                                productId: item.productId,
+                                cartId: this.$store.getters.getId
+                            }
+                        })
+                        this.fetchCartItems();
+                    } catch (error) {
+                        console.error('Ошибка при удалении товара:', error);
+                    }
+                }
+                else {
+                    await this.$axios.put('/CartItem', {
+                        productId: item.productId,
+                        cartId: this.$store.getters.getId,
+                        price: item.product.price,
+                        quantity: quantity
+                    }).then(response => {
+                        this.fetchCartItems();
+                        console.log('Количество товара обновлено:', response.data);
+                    }).catch(error => {
+                        console.error('Ошибка при обновлении количества товара:', error);
+                    });
                 }
             }
         }
